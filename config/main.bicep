@@ -64,7 +64,7 @@ resource cosmos 'Microsoft.DocumentDB/databaseAccounts@2021-04-15' = {
 }
 
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2021-12-01-preview' = {
-  name: '${namePrefix}logs'
+  name: '${namePrefix}loganalytics'
   location: location
   properties: {
     sku: {
@@ -85,7 +85,7 @@ resource containerRegistry 'microsoft.containerregistry/registries@2021-12-01-pr
 }
 
 resource conatinerAppEnvironment 'Microsoft.App/managedEnvironments@2022-03-01' = {
-  name: '${namePrefix}contppen'
+  name: '${namePrefix}containerappenvironment'
   location: location
   properties: {
     appLogsConfiguration: {
@@ -101,7 +101,7 @@ resource conatinerAppEnvironment 'Microsoft.App/managedEnvironments@2022-03-01' 
 // Cuando ya hagas el deploy de tu app recuerda cambiar el targetPort a: 3000
 
 resource containerApp 'Microsoft.App/containerApps@2022-03-01' = {
-  name: '${namePrefix}conapp'
+  name: '${namePrefix}containerapp'
   location: location
   properties: {
     managedEnvironmentId: conatinerAppEnvironment.id
@@ -138,7 +138,7 @@ resource containerApp 'Microsoft.App/containerApps@2022-03-01' = {
     template: {
       containers: [
         {
-          name: '${namePrefix}conapp'
+          name: '${namePrefix}containerapp'
           image: 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
           env: [
             {
