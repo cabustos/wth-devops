@@ -19,7 +19,7 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-          resourceGroupName: ${{ env.AZURE_RG }}
+          resourceGroupName: pets-workshop
           template: ${{ github.workspace }}/config/main.bicep
           parameters: 'namePrefix=${{ vars.AZURE_PREFIX }}'
           failOnStdErr: false
