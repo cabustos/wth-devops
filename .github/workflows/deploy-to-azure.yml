@@ -21,6 +21,6 @@ jobs:
           with:
             appSourcePath: ${{ github.workspace }}
             acrName: cabgacr
-            resourceGroup: ${{ vars.AZURE_RG }}
+            resourceGroup: pets-workshop
             containerAppName: cabgcontainerapp
             containerAppEnvironment: cabgcontainerappenvironment
