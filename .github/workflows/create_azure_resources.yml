@@ -21,5 +21,5 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: pets-workshop
           template: ${{ github.workspace }}/config/main.bicep
-          parameters: 'namePrefix=petssrvdevops'
+          parameters: 'namePrefix=petdevops'
           failOnStdErr: false
